@@ -45,14 +45,20 @@
   height: 80%;
   max-width: 60%;       /* smaller than half */
   position: relative;
-  top: 40px;            /* pushes it down into next section */
+  top: 40px;            
+      right: 12px;
   z-index: 2;
+ 
 }
+
 @media (max-width: 768px) {
   .hero-image-left {
-    max-height: 250px;   /* Adjust to your need */
+    max-width: 100%;
+        right: -3px;
+    content: url("./images/main\ image-mobile.png"); /* swap on mobile */
   }
 }
+
 /* Right Content */
 .hero-content {
   padding: 2rem;
@@ -225,9 +231,7 @@ p{
   color: #636865;
 }
 @media (max-width: 992px) {
-  .hero-image-left {
-    max-width: 100%;       /* smaller than half */
-  }
+
   .hero-content {
      padding-top: 4rem;
      padding-left: 1rem;

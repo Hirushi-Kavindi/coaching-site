@@ -48,7 +48,11 @@
   top: 40px;            /* pushes it down into next section */
   z-index: 2;
 }
-
+@media (max-width: 768px) {
+  .hero-image-left {
+    max-height: 250px;   /* Adjust to your need */
+  }
+}
 /* Right Content */
 .hero-content {
   padding: 2rem;

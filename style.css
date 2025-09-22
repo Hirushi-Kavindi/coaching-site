@@ -183,7 +183,7 @@ p{
 }
 .intro-section{
     background-color: #f7f7ee;
-    padding-bottom: 30px;
+    
 }
 .btn-custom-new{
    padding: 7px 17px;
@@ -289,6 +289,10 @@ p{
     z-index: 1;
     border-radius: 0px;
   }
+  .intro-section{
+    padding-bottom: 30px;
+    
+}
   .intro-img {
     max-width: 94%;
   }

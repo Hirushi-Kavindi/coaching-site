@@ -22,8 +22,7 @@
     </a>
 
     <!-- Mobile Toggle -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+   <button id="navbarToggler" class="navbar-toggler" type="button" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -175,38 +174,42 @@
 </section>
 
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-  document.addEventListener("click", function (event) {
-    const navbar = document.getElementById("navbarNav");
-    const toggle = document.querySelector(".navbar-toggler");
+document.addEventListener('DOMContentLoaded', function () {
+  const toggler = document.getElementById('navbarToggler');
+  const collapseEl = document.getElementById('navbarNav');
 
-    // If click is outside navbar and toggle, then close
-    if (navbar.classList.contains("show") &&
-        !navbar.contains(event.target) &&
-        !toggle.contains(event.target)) {
-      new bootstrap.Collapse(navbar).hide();
-    }
+  // Ensure built-in data attributes won't double-toggle (safe even if not present)
+  toggler.removeAttribute('data-bs-toggle');
+  toggler.removeAttribute('data-bs-target');
+
+  // Create (or get) the Bootstrap Collapse instance WITHOUT auto-toggle
+  const bsCollapse = bootstrap.Collapse.getOrCreateInstance(collapseEl, { toggle: false });
+
+  // Toggle when hamburger clicked
+  toggler.addEventListener('click', function (e) {
+    bsCollapse.toggle();
   });
-</script>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const navbarToggler = document.querySelector(".navbar-toggler");
-    const navbarCollapse = document.querySelector("#navbarNav");
 
-    navbarToggler.addEventListener("click", function () {
-      if (navbarCollapse.classList.contains("show")) {
-        // Close navbar if already open
-        new bootstrap.Collapse(navbarCollapse, {
-          toggle: true
-        }).hide();
-      } else {
-        // Open navbar if closed
-        new bootstrap.Collapse(navbarCollapse, {
-          toggle: true
-        }).show();
-      }
+  // Keep aria-expanded updated using Bootstrap events
+  collapseEl.addEventListener('shown.bs.collapse', () => toggler.setAttribute('aria-expanded', 'true'));
+  collapseEl.addEventListener('hidden.bs.collapse',  () => toggler.setAttribute('aria-expanded', 'false'));
+
+  // Close on nav-link click (common mobile behaviour)
+  document.querySelectorAll('#navbarNav .nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      if (collapseEl.classList.contains('show')) bsCollapse.hide();
     });
   });
+
+  // Close when clicking outside the navbar/collapse
+  document.addEventListener('click', function (event) {
+    if (!collapseEl.classList.contains('show')) return;                // not open — nothing to do
+    if (collapseEl.contains(event.target) || toggler.contains(event.target)) return; // click inside -> ignore
+    bsCollapse.hide();
+  });
+});
 </script>
 
 

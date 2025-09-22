@@ -188,6 +188,27 @@
     }
   });
 </script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const navbarToggler = document.querySelector(".navbar-toggler");
+    const navbarCollapse = document.querySelector("#navbarNav");
+
+    navbarToggler.addEventListener("click", function () {
+      if (navbarCollapse.classList.contains("show")) {
+        // Close navbar if already open
+        new bootstrap.Collapse(navbarCollapse, {
+          toggle: true
+        }).hide();
+      } else {
+        // Open navbar if closed
+        new bootstrap.Collapse(navbarCollapse, {
+          toggle: true
+        }).show();
+      }
+    });
+  });
+</script>
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 

@@ -230,6 +230,31 @@ p{
 .hello-text{
   color: #636865;
 }
+
+.footer {
+  background-color: #4a7660; /* green background */
+}
+
+.footer .nav-link {
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.footer .nav-link:hover {
+  color: #ddd; /* subtle hover effect */
+}
+
+.footer .btn {
+  font-weight: 500;
+  border-radius: 6px;
+  transition: all 0.3s;
+}
+
+.footer .btn:hover {
+  background-color: white;
+  color: #4a7660;
+}
+
 @media (max-width: 992px) {
 
   .hero-content {

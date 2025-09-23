@@ -1,6 +1,7 @@
 
 .navbar {
-  padding: 1rem 2rem;
+  padding: 16px 32px 0px 32px;
+  
 }
 .navbar-brand{
 
@@ -45,8 +46,8 @@
   height: 80%;
   max-width: 60%;       /* smaller than half */
   position: relative;
-  top: 40px;            
-      right: 12px;
+  top: 25px;            
+  right: 12px;
   z-index: 2;
  
 }
@@ -54,7 +55,8 @@
 @media (max-width: 768px) {
   .hero-image-left {
     max-width: 100%;
-        right: -3px;
+    right: -3px;
+    top: 22px;
     content: url("./images/main\ image-mobile.png"); /* swap on mobile */
   }
 }

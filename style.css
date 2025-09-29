@@ -304,14 +304,118 @@ p{
 .card-text-about{
   color: rgb(112, 112, 112);
 }
-/* Make sure they stack nicely on mobile */
+/* Background with image + shade */
+.contact-section {
+background: url("./images/background\ image.png") no-repeat center center/cover;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(212, 221, 216, 0.7);
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.contact-section .container {
+  position: relative;
+  z-index: 1; /* bring above overlay */
+}
+
+/* Card styles */
+.contact-card, .contact-info-card {
+  border-radius: 0px;
+  border: none !important;
+  background: #fff;
+  padding:6%;
+}
+
+/* Modern boxed inputs */
+.modern-box {
+  border: 1px solid #ccc;
+  border-radius: 0px;
+  padding: 8px 10px;
+  font-size: 14px;
+  transition: 0.3s ease;
+}
+.modern-box:focus {
+  border-color: #4a7660;
+  outline: none;
+  box-shadow: 0 0 5px rgba(74, 118, 96, 0.4);
+}
+/* Button styling */
+.btn-custom {
+   padding: 7px 17px;
+  border-radius: 0px;   /* box style */
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  background-color: #4a7660;
+  border: #4a7660;
+  color: #fff;
+  text-transform: capitalize;
+}
+.btn-custom:hover {
+  background-color: #3a5f4d;
+}
+a{
+  color: #4a7660;
+}
+
+.contact-info-card-two{
+  border-radius: 0px;
+  border: none !important;
+  background: #fff;
+  padding:7%;
+}
+.icon-box {
+  background-color: #4a7660;
+  color: #fff;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0px;
+}
+
+/* Contact info text */
+.contact-info-card p {
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+
+.contact-info-card hr {
+  margin: 8px 0;
+  border: 0;
+  border-top: 1px solid #ddd;
+}
+
+/* Social icons */
+.contact-info-card a {
+  color: #4a7660;
+  transition: 0.3s ease;
+}
+.contact-info-card a:hover {
+  color: #3a5f4d;
+}
+
+
+
 @media (max-width: 768px) {
   .card-left, .card-right {
     width: 100%;
     margin: 0;
   }
   .card-right {
-    margin-top: -30px; /* slight overlap even on mobile */
+    margin-top: -30px; 
   }
   
 }

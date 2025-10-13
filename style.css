@@ -155,7 +155,7 @@ p{
   border-radius: 0px;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid #8bb19e !important;
+  
   
 }
 .card.custom-card {
@@ -196,6 +196,27 @@ p{
   transition: all 0.3s ease;
   background-color: #4a7660;
   border: #4a7660;
+}
+.btn-custom-new:hover {
+  background-color: #115529;
+  transform: translateY(-2px);
+  
+}
+.btn-custom-white{
+  padding: 7px 17px;
+  border-radius: 0px;   /* box style */
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  background-color: #f7f7ee;
+  border: #f7f7ee;
+  color: #4a7660;
+}
+.btn-custom-white:hover {
+  background-color: #115529;
+  transform: translateY(-2px);
+  
 }
 /* Decorative block (like a second square behind image) */
 .bg-square {

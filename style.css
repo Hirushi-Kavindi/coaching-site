@@ -775,4 +775,10 @@ a{
 ease, color 0.3s 
 ease;
 }
+
+  .new-line{
+    display: inline-block;
+    border-bottom: 2px solid #fff; /* White underline */
+    padding-bottom: 4px;
+  }
 }

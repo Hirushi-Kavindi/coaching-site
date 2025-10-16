@@ -256,7 +256,7 @@ p{
 }
 
 .footer {
-  background-color: #4a7660; /* green background */
+  background-color: #767978; 
 }
 
 .footer .nav-link {
@@ -756,7 +756,7 @@ a{
 @media (max-width: 768px) {
   .stats-row {
     flex-direction: column;
-    gap: 30px;
+    gap: 0px;
   }
 
   .stat-number {
@@ -766,4 +766,13 @@ a{
   .stat-label {
     font-size: 0.9rem;
   }
+  .stat-box {
+    flex: 1 1 182px;
+    max-width: 300px;
+    padding: 34px 20px !important;
+    position: relative;
+    transition: transform 0.4s 
+ease, color 0.3s 
+ease;
+}
 }

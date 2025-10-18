@@ -49,11 +49,11 @@
   </div>
 </nav>
 
-<section class="content-image-section ">
+<section class="content-image-section " id="coaching">
   <div class="container-fluid">
     <div class="row align-items-center">
       
-      <!-- Left Content -->
+  
       <div class="col-lg-6 col-md-12 content-side">
         <div class="content-wrapper">
           <h2 class="section-title">COACHING</h2>
@@ -65,7 +65,7 @@ High-minded women are thinkers, dreamers, and doers — they want more than surf
         </div>
       </div>
 
-      <!-- Right Image Side -->
+     
       <div class="col-lg-6 col-md-12 image-side position-relative">
         <img src="./images/service11.jfif" alt="Creative Design" class="img-fluid full-img">
         <div class="tagline-box">
@@ -115,11 +115,11 @@ High-minded women are thinkers, dreamers, and doers — they want more than surf
   </div>
 </section>
 
-<section class="content-image-section py-5">
+<section class="content-image-section py-5" id="groupcoaching">
   <div class="container-fluid">
     <div class="row align-items-center">
       
-      <!-- Left Content -->
+    
       <div class="col-lg-6 col-md-12 content-side">
         <div class="content-wrapper">
           <h2 class="section-title">GROUP COACHING</h2>
@@ -131,7 +131,7 @@ It’s not just about learning — it’s about connecting, evolving, and moving
         </div>
       </div>
 
-      <!-- Right Image Side -->
+ 
       <div class="col-lg-6 col-md-12 image-side position-relative">
         <img src="./images/service2.jfif" alt="Creative Design" class="img-fluid full-img">
         <div class="tagline-box">
@@ -167,11 +167,10 @@ It’s not just about learning — it’s about connecting, evolving, and moving
 </section>
 
 
-<section class="content-image-section py-5">
+<section class="content-image-section py-5" id="selfguided">
   <div class="container-fluid">
     <div class="row align-items-center">
-      
-      <!-- Left Content -->
+   
       <div class="col-lg-6 col-md-12 content-side">
         <div class="content-wrapper">
           <h2 class="section-title">SELF GUIDED</h2>
@@ -183,7 +182,6 @@ This approach encourages independence and consistency, helping you develop the d
         </div>
       </div>
 
-      <!-- Right Image Side -->
       <div class="col-lg-6 col-md-12 image-side position-relative">
         <img src="./images/service3.jfif" alt="Creative Design" class="img-fluid full-img">
         <div class="tagline-box">
@@ -202,33 +200,32 @@ document.addEventListener('DOMContentLoaded', function () {
   const toggler = document.getElementById('navbarToggler');
   const collapseEl = document.getElementById('navbarNav');
 
-  // Ensure built-in data attributes won't double-toggle (safe even if not present)
   toggler.removeAttribute('data-bs-toggle');
   toggler.removeAttribute('data-bs-target');
 
-  // Create (or get) the Bootstrap Collapse instance WITHOUT auto-toggle
+
   const bsCollapse = bootstrap.Collapse.getOrCreateInstance(collapseEl, { toggle: false });
 
-  // Toggle when hamburger clicked
+ 
   toggler.addEventListener('click', function (e) {
     bsCollapse.toggle();
   });
 
-  // Keep aria-expanded updated using Bootstrap events
+
   collapseEl.addEventListener('shown.bs.collapse', () => toggler.setAttribute('aria-expanded', 'true'));
   collapseEl.addEventListener('hidden.bs.collapse',  () => toggler.setAttribute('aria-expanded', 'false'));
 
-  // Close on nav-link click (common mobile behaviour)
+
   document.querySelectorAll('#navbarNav .nav-link').forEach(link => {
     link.addEventListener('click', () => {
       if (collapseEl.classList.contains('show')) bsCollapse.hide();
     });
   });
 
-  // Close when clicking outside the navbar/collapse
+
   document.addEventListener('click', function (event) {
-    if (!collapseEl.classList.contains('show')) return;                // not open — nothing to do
-    if (collapseEl.contains(event.target) || toggler.contains(event.target)) return; // click inside -> ignore
+    if (!collapseEl.classList.contains('show')) return;               
+    if (collapseEl.contains(event.target) || toggler.contains(event.target)) return; 
     bsCollapse.hide();
   });
 });

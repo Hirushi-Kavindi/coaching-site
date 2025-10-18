@@ -18,17 +18,17 @@
   
 <nav class="navbar navbar-expand-lg bg-white ">
   <div class="container-fluid">
-    <!-- Logo -->
+ 
     <a class="navbar-brand fw-bold" href="#">
       ADELINE
     </a>
 
-    <!-- Mobile Toggle -->
+
    <button id="navbarToggler" class="navbar-toggler" type="button" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <!-- Nav Items -->
+
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav align-items-lg-center">
         <li class="nav-item">
@@ -67,12 +67,12 @@
   <div class="row justify-content-center">
     <div class="col-md-10 position-relative d-flex">
       
-      <!-- Left Card (Image) -->
+    
       <div class=" card-about-left shadow-sm">
         <img src="./images/intro.jpg" class="img-fluid" alt="Card Image">
       </div>
 
-      <!-- Right Card (Content) -->
+      
       <div class="card card-about-right shadow-lg p-5">
         <div class="card-body-about">
           <h5 class="hello-text">IT'S NICE TO SEE WOMEN ARE EMPOWERING...</h5>
@@ -101,33 +101,32 @@ document.addEventListener('DOMContentLoaded', function () {
   const toggler = document.getElementById('navbarToggler');
   const collapseEl = document.getElementById('navbarNav');
 
-  // Ensure built-in data attributes won't double-toggle (safe even if not present)
+
   toggler.removeAttribute('data-bs-toggle');
   toggler.removeAttribute('data-bs-target');
 
-  // Create (or get) the Bootstrap Collapse instance WITHOUT auto-toggle
   const bsCollapse = bootstrap.Collapse.getOrCreateInstance(collapseEl, { toggle: false });
 
-  // Toggle when hamburger clicked
+
   toggler.addEventListener('click', function (e) {
     bsCollapse.toggle();
   });
 
-  // Keep aria-expanded updated using Bootstrap events
+
   collapseEl.addEventListener('shown.bs.collapse', () => toggler.setAttribute('aria-expanded', 'true'));
   collapseEl.addEventListener('hidden.bs.collapse',  () => toggler.setAttribute('aria-expanded', 'false'));
 
-  // Close on nav-link click (common mobile behaviour)
+
   document.querySelectorAll('#navbarNav .nav-link').forEach(link => {
     link.addEventListener('click', () => {
       if (collapseEl.classList.contains('show')) bsCollapse.hide();
     });
   });
 
-  // Close when clicking outside the navbar/collapse
+
   document.addEventListener('click', function (event) {
-    if (!collapseEl.classList.contains('show')) return;                // not open — nothing to do
-    if (collapseEl.contains(event.target) || toggler.contains(event.target)) return; // click inside -> ignore
+    if (!collapseEl.classList.contains('show')) return;                
+    if (collapseEl.contains(event.target) || toggler.contains(event.target)) return; 
     bsCollapse.hide();
   });
 });
